@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== FAVICON ===============-->
+      <link rel="shortcut icon" href="assets/img/home-perfil.png" type="image/png">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css?v=20260827-art-v4">
+
+      <title>Contact - Gengmeng</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header header-pages" id="header">
+         <nav class="nav container">
+            <a href="index.html" class="nav__logo">Gengmeng</a>
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="index.html" class="nav__link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="about.html" class="nav__link">About</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="work.html" class="nav__link">Work</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="contact.html" class="button">Contact</a>
+                  </li>
+               </ul>
+
+               <!-- Close button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <div class="nav__actions">
+               <!-- Theme button -->
+               <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+               <!-- Toggle button -->
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line"></i>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <!--==================== MAIN ====================-->
+      <main class="main page-main">
+         <!--==================== CONTACT ====================-->
+         <section class="contact section">
+            <!-- <h1 class="section__title">
+               Let's Talk<br>
+               About You              
+            </h1> -->
+            <h1 class="section__title page__title">
+               Let's Connect
+            </h1>
+
+            <div class="contact__page container grid">
+               <form action="" class="contact__form grid" id="contact-form">
+                  <p class="contact__required">Fields marked <span aria-hidden="true">*</span> are required.</p>
+
+                  <div class="contact__group grid">
+                     <div class="contact__box">
+                        <input type="text" name="user_first_name" id="first-name" required placeholder="Your first name" class="contact__input">
+                        <label for="first-name" class="contact__label">First Name <span class="contact__required-mark" aria-hidden="true">*</span></label>
+                     </div>
+
+                     <div class="contact__box">
+                        <input type="text" name="user_last_name" id="last-name" required placeholder="Your last name" class="contact__input">
+                        <label for="last-name" class="contact__label">Last Name <span class="contact__required-mark" aria-hidden="true">*</span></label>
+                     </div>
+
+                     <div class="contact__box">
+                        <input type="email" name="user_email" id="email" required placeholder="you@example.com" class="contact__input">
+                        <label for="email" class="contact__label">Email Address <span class="contact__required-mark" aria-hidden="true">*</span></label>
+                     </div>
+                  </div>
+
+                  <div class="contact__box contact__area">
+                     <textarea name="user_message" id="message" 
+                     required placeholder="Hi Gengmeng,&#10;&#10;I have some thoughts about your website and wanted to reach out because...&#10;Or maybe I just wanted to say hi.&#10;&#10;Best,&#10;Your name" class="contact__input"></textarea>
+                     <label for="message" class="contact__label">Message <span class="contact__required-mark" aria-hidden="true">*</span></label>
+                  </div>
+
+                  <p class="contact__message" id="contact-message" role="status" aria-live="polite"></p>
+
+                  <button type="submit" class="contact__send button">Send</button>
+               </form>
+            </div>
+         </section>
+      </main>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer">
+         <div class="footer__container container grid">
+            <div class="footer__content grid">
+               <a href="index.html" class="footer__logo">Gengmeng</a>
+               <ul class="footer__links">
+                  <li>
+                     <a href="about.html" class="footer__link">About</a>
+                  </li>
+                  <li>
+                     <a href="work.html" class="footer__link">Work</a>
+                  </li>
+                  <li>
+                     <a href="contact.html" class="footer__link">Contact</a>
+                  </li>
+               </ul>
+               <div class="footer__social">
+                  <a href="https://www.linkedin.com/in/gengmengye/" 
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Gengmeng's Linkedin">
+                     <i class="ri-linkedin-box-fill"></i>
+                  </a>
+
+                  <a href="https://github.com/gengmeng-ye/" 
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Gengmeng's Github profile">
+                     <i class="ri-github-fill"></i>
+                  </a>
+               </div>
+               <span class="footer__copy">
+                  &#169; All Rights Reserved By Bedimcode
+               </span>
+            </div>
+         </div>
+         
+         <!--========== SCROLL UP ==========-->
+         <a href="#" class="scrollup" id="scroll-up"
+         aria-label="Scroll back to the top">
+            <i class="ri-arrow-up-line"></i>
+         </a>
+      </footer>
+         
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js?v=20260827"></script>
+      
+      <!--=============== EMAIL JS ===============-->
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      
+      <!--=============== CONTACT JS ===============-->
+      <script src="assets/js/contact.js?v=20260827"></script>
+
+      <!--=============== SWIPER JS ===============-->
+      <script src="assets/js/swiper-bundle.min.js"></script>
+
+      <!--=============== INDEX JS ===============-->
+      <script src="assets/js/index.js"></script>
+
+   </body>
+</html>
