@@ -2762,3 +2762,134 @@ body:not(.dark-theme) .footer::before {
   background: hsla(168, 8%, 6%, .12);
   opacity: 1;
 }
+
+/*=============== HOME — COMPACT MOBILE LAYOUT ===============*/
+@media screen and (max-width: 575px) {
+  .home {
+    min-height: auto;
+    background-position: 38% center;
+  }
+
+  .home__rectangle {
+    height: 13rem;
+    background-position: 30% center;
+  }
+
+  .home__container {
+    min-height: auto;
+    gap: 1.35rem;
+    padding-block: calc(var(--header-height) + 1.25rem) 2.75rem;
+  }
+
+  .home__perfil {
+    width: min(58vw, 218px);
+    height: min(58vw, 218px);
+  }
+
+  .home__perfil .perfil__content {
+    width: min(43vw, 164px);
+    height: min(43vw, 164px);
+    border-width: 4px;
+  }
+
+  .home__perfil .perfil__img {
+    width: min(36vw, 138px);
+  }
+
+  .home__content {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.35rem .8rem;
+    width: 100%;
+    padding: 1.55rem 1.35rem 1.4rem;
+    border-radius: 16px 5px 16px 5px;
+  }
+
+  .home__content::before {
+    width: 4rem;
+    height: .8rem;
+    left: 1.75rem;
+  }
+
+  .home__data {
+    grid-column: 1 / -1;
+    row-gap: .65rem;
+  }
+
+  .home__name {
+    font-size: clamp(2.55rem, 12vw, 3.2rem);
+    line-height: .96;
+  }
+
+  .home__profession {
+    font-size: 1.25rem;
+  }
+
+  .home__description {
+    font-size: 1rem;
+    line-height: 1.48;
+  }
+
+  .home__social {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    padding: .42rem .65rem;
+    column-gap: .65rem;
+  }
+
+  .home__social-link {
+    font-size: 1.35rem;
+  }
+
+  .home__button {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    padding: .8rem 1.25rem;
+    white-space: nowrap;
+  }
+
+  .services {
+    padding-block: 3.75rem 2.25rem;
+  }
+
+  .services .section__title {
+    margin-bottom: .8rem;
+  }
+
+  .services__intro {
+    margin: 0 1.25rem 1.75rem;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .services__container {
+    row-gap: 1.15rem;
+  }
+
+  .services__card {
+    min-height: 0;
+    padding: 1.65rem 1.35rem 1.75rem;
+  }
+
+  .services__index {
+    font-size: 2.1rem;
+    margin-bottom: .8rem;
+  }
+
+  .services__title {
+    margin-bottom: .7rem;
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
+
+  .services__description {
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .testimonial.section {
+    padding-block: 2.75rem 4rem;
+  }
+}
