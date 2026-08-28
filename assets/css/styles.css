@@ -383,9 +383,11 @@ body.dark-theme {
   width: 250px;
   height: 250px;
   background-color: hsla(40, 24%, 98%, .86);
-  border: 3px solid hsla(var(--hue), 30%, 66%, .36);
+  border: 1px solid hsla(0, 0%, 100%, .94);
   border-radius: 50%;
-  box-shadow: 0 18px 54px hsla(var(--hue), 22%, 34%, .1);
+  box-shadow:
+    inset 0 0 0 1px hsla(var(--hue), 16%, 54%, .2),
+    0 18px 54px hsla(var(--hue), 18%, 28%, .12);
   display: grid;
   place-items: center;
 }
@@ -393,7 +395,7 @@ body.dark-theme {
 .perfil__content {
   width: 180px;
   height: 180px;
-  border: 5px solid hsla(var(--hue), 38%, 74%, .46);
+  border: 4px solid hsla(var(--hue), 22%, 62%, .7);
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -606,7 +608,9 @@ body.dark-theme {
 /* Change background header */
 .bg-header {
   background-color: var(--body-color);
-  box-shadow: 0 2px 16px var(--shadow-color);
+  box-shadow:
+    0 8px 24px hsla(178, 22%, 24%, .1),
+    0 2px 8px hsla(0, 0%, 100%, .52);
 }
 
 .bg-header :is(.nav__logo, .nav__toggle, .change-theme) {
@@ -657,7 +661,7 @@ body.dark-theme {
   border-bottom: 1px solid hsla(34, 86%, 58%, .28);
   background-color: var(--body-color);
   background-image:
-    linear-gradient(90deg, hsla(39, 55%, 98%, .1) 0%, hsla(39, 55%, 98%, .72) 46%, hsla(39, 55%, 98%, .92) 78%),
+    linear-gradient(90deg, hsla(39, 55%, 98%, .08) 0%, hsla(39, 55%, 98%, .58) 42%, hsla(39, 55%, 98%, .88) 76%),
     linear-gradient(180deg, hsla(178, 74%, 30%, .06), hsla(34, 94%, 58%, .1)),
     url("../img/site-impression-garden-fire.png");
   background-size: cover;
@@ -727,17 +731,52 @@ body.dark-theme {
 }
 
 .home__content {
+  position: relative;
   row-gap: 2.25rem;
   justify-self: start;
   justify-items: start;
   width: 100%;
   max-width: 38rem;
   margin-inline: 0 auto;
-  padding: 1.25rem;
-  border-left: 1px solid hsla(34, 94%, 58%, .26);
-  background: linear-gradient(90deg, hsla(39, 55%, 98%, .78), hsla(39, 55%, 98%, .48), transparent);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  padding: 1.65rem;
+  isolation: isolate;
+  border: 1px solid hsla(0, 0%, 100%, .92);
+  border-radius: 18px 6px 18px 6px;
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, .94), hsla(0, 0%, 100%, .84));
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, 1),
+    inset -1px -1px 0 hsla(186, 44%, 62%, .14),
+    0 18px 42px hsla(178, 28%, 22%, .13);
+  backdrop-filter: blur(7px) saturate(1.18);
+  -webkit-backdrop-filter: blur(7px) saturate(1.18);
+}
+
+.home__content::before {
+  content: "";
+  position: absolute;
+  width: 4.6rem;
+  height: .95rem;
+  top: -.55rem;
+  left: 2.25rem;
+  border-radius: 3px;
+  background: hsla(43, 90%, 76%, .78);
+  box-shadow: 0 3px 10px hsla(34, 40%, 30%, .09);
+  transform: rotate(-4deg);
+}
+
+.home__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(116deg, transparent 11%, hsla(210, 24%, 88%, .13) 24%, hsla(0, 0%, 100%, .72) 30%, transparent 42%);
+}
+
+.home__content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .home__data {
@@ -776,7 +815,18 @@ body.dark-theme {
 .home__social {
   display: flex;
   justify-content: flex-start;
-  column-gap: 1rem;
+  justify-self: center;
+  align-items: center;
+  column-gap: .8rem;
+  padding: .48rem .7rem;
+  border: 1px solid hsla(0, 0%, 100%, .92);
+  border-radius: 999px;
+  background-color: hsla(0, 0%, 100%, .72);
+  box-shadow:
+    inset 0 1px 0 hsla(0, 0%, 100%, 1),
+    0 8px 20px hsla(178, 22%, 24%, .09);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .home__social-link {
@@ -805,6 +855,12 @@ body.dark-theme {
   overflow: hidden;
   padding-top: 6rem;
   background-color: var(--glass-bg);
+  background-image:
+    linear-gradient(90deg, hsla(40, 24%, 98%, .26) 0%, hsla(40, 24%, 98%, .42) 28%, hsla(40, 24%, 98%, .9) 49%, hsla(40, 24%, 98%, .99) 70%),
+    url("../img/hero-oil-bg-v5.png");
+  background-size: cover;
+  background-position: left center;
+  background-attachment: fixed;
 }
 
 .about__heading {
@@ -823,7 +879,7 @@ body.dark-theme {
 }
 
 .about__page {
-  padding-bottom: 3.25rem;
+  padding-bottom: 2rem;
 }
 
 .about__perfil {
@@ -837,18 +893,55 @@ body.dark-theme {
 }
 
 .about__data {
-  row-gap: 1.5rem;
+  row-gap: 1rem;
 }
 
 .about__info {
+  position: relative;
+  overflow: hidden;
   row-gap: .85rem;
-  background-color: hsla(0, 0%, 100%, .82);
-  border: 1px solid hsla(180, 58%, 42%, .2);
+  background-color: hsla(0, 0%, 100%, .9);
+  background-image: linear-gradient(135deg, hsla(0, 0%, 100%, .84), hsla(192, 72%, 97%, .2) 58%, hsla(228, 72%, 98%, .18));
+  border: 2px solid hsla(190, 62%, 92%, .86);
   box-shadow:
-    inset 0 1px 0 hsla(0, 0%, 100%, .95),
-    0 18px 48px hsla(180, 42%, 28%, .1);
-  padding: 2rem 1.5rem 2.35rem;
+    inset 2px 2px 0 hsla(0, 0%, 100%, .92),
+    inset -2px -3px 0 hsla(202, 62%, 72%, .18),
+    0 5px 0 hsla(195, 42%, 78%, .28),
+    0 20px 48px hsla(194, 42%, 24%, .12);
+  padding: 1.75rem 1.5rem 2rem;
+  border-radius: 28px 8px 28px 8px;
   text-align: left;
+  backdrop-filter: blur(5px) saturate(1.28) brightness(1.04);
+  -webkit-backdrop-filter: blur(5px) saturate(1.28) brightness(1.04);
+}
+
+.about__info::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(118deg, transparent 8%, hsla(0, 0%, 100%, .52) 22%, transparent 35%),
+    radial-gradient(circle at 94% 5%, hsla(190, 76%, 94%, .58), transparent 22%);
+}
+
+.about__info::after,
+.about__skills::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  height: 4px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent, hsla(192, 68%, 68%, .38), hsla(228, 68%, 78%, .28), transparent);
+  box-shadow: 0 2px 5px hsla(194, 52%, 38%, .12);
+}
+
+.about__info > * {
+  position: relative;
+  z-index: 1;
 }
 
 .about__name {
@@ -871,59 +964,148 @@ body.dark-theme {
   line-height: 1.55;
 }
 
+.about__highlight {
+  font-weight: 800;
+  padding-inline: .03em;
+  text-shadow: 0 1px 0 hsla(0, 0%, 100%, .72);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.about__highlight--career {
+  color: #4776c5;
+  background: linear-gradient(180deg, transparent 82%, hsla(218, 52%, 64%, .2) 82%);
+  box-shadow: none;
+}
+
+.about__highlight--interest {
+  color: hsl(267, 48%, 52%);
+  background: linear-gradient(180deg, transparent 82%, hsla(270, 64%, 66%, .22) 82%);
+  box-shadow: none;
+}
+
+.about__highlight--thinking {
+  color: hsl(342, 62%, 52%);
+  background: linear-gradient(180deg, transparent 82%, hsla(342, 72%, 64%, .2) 82%);
+}
+
+.about__highlight--connect {
+  color: hsl(342, 62%, 52%);
+  background: linear-gradient(180deg, transparent 82%, hsla(342, 72%, 64%, .2) 82%);
+}
+
+.dark-theme .about__highlight {
+  text-shadow: none;
+}
+
+.dark-theme .about__highlight--career {
+  color: #86a9e5;
+  background: linear-gradient(180deg, transparent 82%, hsla(218, 54%, 66%, .24) 82%);
+}
+
+.dark-theme .about__highlight--interest {
+  color: hsl(270, 68%, 74%);
+  background: linear-gradient(180deg, transparent 82%, hsla(270, 62%, 62%, .25) 82%);
+}
+
+.dark-theme .about__highlight--thinking {
+  color: hsl(342, 78%, 72%);
+  background: linear-gradient(180deg, transparent 82%, hsla(342, 66%, 62%, .25) 82%);
+}
+
+.dark-theme .about__highlight--connect {
+  color: hsl(342, 78%, 72%);
+  background: linear-gradient(180deg, transparent 82%, hsla(342, 66%, 62%, .25) 82%);
+}
+
 .about__description b {
   color: var(--text-color);
   /* color: var(--first-color); */
 }
 
 .about__button {
-  justify-self: flex-start;
-  margin-top: .75rem;
+  justify-self: center;
+  margin-top: .65rem;
 }
 
 .about__skills {
-  background-color: hsla(40, 38%, 99%, .88);
-  background-image: none;
-  border: 1px solid hsla(180, 58%, 42%, .2);
+  position: relative;
+  overflow: hidden;
+  background-color: hsla(0, 0%, 100%, .88);
+  background-image:
+    linear-gradient(132deg, hsla(0, 0%, 100%, .88) 0 2%, hsla(0, 0%, 100%, .7) 48%, hsla(178, 72%, 96%, .08));
+  border: 2px solid hsla(190, 62%, 93%, .92);
   box-shadow:
-    inset 0 1px 0 hsla(0, 0%, 100%, .9),
-    0 14px 34px hsla(180, 42%, 28%, .09);
-  padding: 1.35rem 1.15rem;
-  border-radius: 6px;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+    inset 2px 2px 0 hsla(0, 0%, 100%, 1),
+    inset -2px -3px 0 hsla(202, 62%, 66%, .22),
+    0 0 0 1px hsla(0, 0%, 100%, .24),
+    0 5px 0 hsla(195, 42%, 76%, .26),
+    0 18px 38px hsla(194, 44%, 20%, .14);
+  padding: .95rem 1rem;
+  border-radius: 12px 3px 12px 3px;
+  backdrop-filter: blur(5px) saturate(1.24) contrast(1.03);
+  -webkit-backdrop-filter: blur(5px) saturate(1.24) contrast(1.03);
+}
+
+.about__skills::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(112deg, transparent 10%, hsla(0, 0%, 100%, .64) 25%, transparent 34%),
+    linear-gradient(180deg, hsla(0, 0%, 100%, .5) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 92% 8%, hsla(182, 70%, 92%, .6), transparent 21%);
+  opacity: .9;
+}
+
+.about__skills > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dark-theme .about__skills {
+  background-color: hsla(174, 18%, 18%, .18);
+  border-color: hsla(178, 36%, 78%, .28);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, .16),
+    0 18px 42px hsla(180, 38%, 4%, .3);
 }
 
 .about__skills--data {
-  background-image: none;
-  border-color: hsla(190, 18%, 72%, .25);
+  background-image: linear-gradient(145deg, hsla(175, 76%, 97%, .14), hsla(0, 0%, 100%, .84) 62%);
+  border-color: hsla(176, 64%, 94%, .92);
+  transform: none;
 }
 
 .about__skills--visuals {
-  background-image: none;
-  border-color: hsla(190, 18%, 72%, .25);
+  background-image: linear-gradient(145deg, hsla(38, 90%, 98%, .12), hsla(0, 0%, 100%, .84) 62%);
+  border-color: hsla(42, 78%, 95%, .92);
+  border-radius: 12px 3px 12px 3px;
+  transform: none;
 }
 
 .about__skills-title {
-  font-family: var(--display-font);
+  font-family: var(--body-font);
   font-size: calc(var(--h3-font-size) * .94);
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: .01em;
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: .8rem;
 }
 
 .about__skills-item {
   min-width: 3.4rem;
   display: grid;
-  grid-template-rows: 38px 1rem;
+  grid-template-rows: 32px .9rem;
   justify-items: center;
   align-items: center;
-  row-gap: .4rem;
+  row-gap: .25rem;
 }
 
 .about__skills-img {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   transition: transform .4s;
 }
@@ -954,7 +1136,7 @@ body.dark-theme {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   justify-content: center;
   align-items: center;
-  gap: .75rem .55rem;
+  gap: .45rem .45rem;
 }
 
 /* .about__skills-img-subtitle {
@@ -962,6 +1144,40 @@ body.dark-theme {
 } */
 
 /*=============== SERVICES ===============*/
+.home__continuation {
+  position: relative;
+  isolation: isolate;
+  background-color: hsl(148, 30%, 94%);
+  background-image:
+    linear-gradient(hsla(150, 18%, 98%, .08), hsla(146, 18%, 96%, .05)),
+    url("../img/endorsements-abstract-sage-gold.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home__continuation .section__title {
+  font-family: var(--display-font);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.home__continuation :is(.services__title, .testimonial__name) {
+  font-family: var(--body-font);
+  font-weight: 600;
+  letter-spacing: -.015em;
+}
+
+.home__continuation :is(.services, .testimonial.section) {
+  background-color: transparent;
+  background-image: none;
+}
+
+.home__continuation :is(.services, .testimonial.section)::before,
+.home__continuation :is(.services, .testimonial.section)::after {
+  display: none;
+}
+
 .services {
   --glass-bg: hsl(42, 42%, 97%);
   --glass-ink: hsla(178, 56%, 36%, .16);
@@ -981,8 +1197,9 @@ body.dark-theme {
 .services__intro {
   max-width: 43rem;
   margin: 0 auto 2.75rem;
-  color: hsl(var(--hue), 7%, 42%);
+  color: hsl(var(--hue), 18%, 25%);
   font-size: var(--normal-font-size);
+  font-weight: 500;
   line-height: 1.55;
   text-align: center;
 }
@@ -1324,12 +1541,15 @@ body.dark-theme {
   font-feature-settings: "lnum" 1;
   line-height: 1.2;
   margin-bottom: .25rem;
+  text-align: left;
 }
 
 .work__subtitle {
+  display: block;
   font-size: var(--normal-font-size);
   font-weight: 500;
   line-height: 1.35;
+  text-align: left;
 }
 
 .work__accent {
@@ -1353,6 +1573,17 @@ body.dark-theme {
   padding-bottom: .75rem;
 }
 
+.work-main {
+  background-color: hsl(148, 30%, 94%);
+  background-image:
+    linear-gradient(hsla(150, 18%, 98%, .34), hsla(146, 18%, 96%, .26)),
+    url("../img/endorsements-abstract-sage-gold.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .work.section .section__title {
   margin-bottom: 3.25rem;
 }
@@ -1372,10 +1603,10 @@ body.dark-theme {
 
 /*=============== TESTIMONIAL ===============*/
 .testimonial.section {
-  --glass-bg: hsl(185, 36%, 96%);
-  --glass-ink: hsla(178, 52%, 34%, .16);
-  --glass-warm: hsla(34, 82%, 62%, .14);
-  --glass-flare: hsla(0, 0%, 100%, .56);
+  --glass-bg: hsl(148, 30%, 94%);
+  --glass-ink: hsla(154, 38%, 38%, .14);
+  --glass-warm: hsla(43, 34%, 64%, .16);
+  --glass-flare: hsla(0, 0%, 100%, .62);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -1398,9 +1629,9 @@ body.dark-theme {
 
 .testimonial__card {
   background-color: hsla(0, 0%, 100%, .84);
-  border: 1px solid hsla(180, 58%, 42%, .2);
+  border: 1px solid hsla(154, 30%, 48%, .2);
   padding: 2.2rem 2rem 2.45rem;
-  box-shadow: 0 24px 52px hsla(180, 42%, 28%, .12);
+  box-shadow: 0 24px 52px hsla(154, 28%, 26%, .11);
   text-align: center;
   transition: background-color .4s;
 }
@@ -1418,7 +1649,10 @@ body.dark-theme {
 .testimonial__border {
   width: 88px;
   height: 88px;
-  border: 3px solid hsla(var(--hue), 38%, 74%, .45);
+  border: 2px solid hsla(var(--hue), 26%, 46%, .68);
+  box-shadow:
+    0 0 0 4px hsla(0, 0%, 100%, .9),
+    0 8px 20px hsla(var(--hue), 30%, 30%, .12);
   overflow: hidden;
   border-radius: 50%;
   margin: 0 auto 1.75rem;
@@ -1467,14 +1701,29 @@ body.dark-theme {
 }
 
 .contact.section {
-  --glass-bg: hsl(17, 58%, 96%);
-  --glass-ink: hsla(178, 52%, 38%, .14);
-  --glass-warm: hsla(350, 76%, 68%, .18);
-  --glass-flare: hsla(0, 0%, 100%, .62);
+  --glass-bg: hsl(148, 24%, 90%);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   background-color: var(--glass-bg);
+  background-image:
+    linear-gradient(hsla(150, 16%, 98%, .08), hsla(146, 16%, 96%, .05)),
+    url("../img/endorsements-abstract-sage-gold.png");
+  background-position: center 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+}
+
+.contact.section::before {
+  background:
+    linear-gradient(112deg, hsla(150, 12%, 97%, .18) 0 48%, hsla(43, 30%, 82%, .12) 100%);
+  filter: none;
+  animation: none;
+}
+
+.contact.section::after {
+  display: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -1608,6 +1857,41 @@ body.dark-theme {
   color: var(--title-color);
 }
 
+/*=============== SHARED ACRYLIC GLASS ===============*/
+:is(.services__card, .testimonial__card, .work__card, .contact__form, .about__info, .about__skills) {
+  background-color: hsla(0, 0%, 100%, .88);
+  background-image: linear-gradient(135deg, hsla(0, 0%, 100%, .86), hsla(190, 66%, 97%, .18) 62%, hsla(330, 58%, 97%, .12));
+  border: 1px solid hsla(0, 0%, 100%, .82);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, .96),
+    inset -1px -1px 0 hsla(210, 12%, 46%, .1),
+    0 14px 36px hsla(210, 14%, 18%, .1);
+  backdrop-filter: blur(6px) saturate(1.16);
+  -webkit-backdrop-filter: blur(6px) saturate(1.16);
+}
+
+:is(.services__card, .testimonial__card, .work__card, .contact__form) {
+  border-radius: 14px 4px 14px 4px;
+}
+
+:is(.services__card, .work__card):hover {
+  border-color: hsla(0, 0%, 100%, .96);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, 1),
+    inset -1px -1px 0 hsla(210, 14%, 44%, .12),
+    0 20px 44px hsla(210, 16%, 18%, .13);
+}
+
+.dark-theme :is(.services__card, .testimonial__card, .work__card, .contact__form, .about__info, .about__skills) {
+  background-color: hsla(174, 18%, 18%, .78);
+  background-image: linear-gradient(135deg, hsla(174, 18%, 24%, .72), hsla(188, 26%, 18%, .64));
+  border-color: hsla(0, 0%, 100%, .16);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, .14),
+    inset -1px -1px 0 hsla(210, 14%, 68%, .08),
+    0 18px 42px hsla(180, 38%, 4%, .3);
+}
+
 /*=============== FOOTER ===============*/
 .footer {
   position: relative;
@@ -1618,8 +1902,14 @@ body.dark-theme {
   outline: 0 !important;
   box-shadow: none !important;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, hsla(178, 38%, 96%, .76), hsla(178, 30%, 88%, .92));
+  background-color: hsl(171, 48%, 72%);
+  background-image:
+    linear-gradient(180deg, hsla(150, 42%, 92%, .82) 0%, hsla(152, 44%, 88%, .3) 12%, transparent 42%),
+    linear-gradient(90deg, hsla(0, 0%, 100%, .14), hsla(42, 82%, 92%, .06)),
+    url("../img/footer-lake-flowers-user.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: normal;
 }
 
 body:not(.dark-theme) .footer::before {
@@ -1767,8 +2057,12 @@ body:not(.dark-theme) .footer::before {
 
 @media screen and (max-width: 767px) {
   .footer {
-    background:
-      linear-gradient(180deg, hsla(178, 38%, 96%, .82), hsla(178, 30%, 88%, .94));
+    background-image:
+      linear-gradient(180deg, var(--body-color) 0%, hsla(0, 0%, 100%, .84) 5%, hsla(0, 0%, 100%, .2) 28%, transparent 52%),
+      linear-gradient(90deg, hsla(0, 0%, 100%, .2), hsla(0, 0%, 100%, .08)),
+      url("../img/footer-lake-flowers-user.png");
+    background-size: auto 100%;
+    background-position: center;
   }
 
   .dark-theme .footer {
@@ -1875,7 +2169,7 @@ body:not(.dark-theme) .footer::before {
   }
 
   .contact__page {
-    grid-template-columns: 670px;
+    grid-template-columns: minmax(0, 780px);
     justify-content: center;
   }
   .contact__group {
@@ -1920,7 +2214,7 @@ body:not(.dark-theme) .footer::before {
   }
 
   .about.section {
-    padding-top: 8rem;
+    padding-top: 6.75rem;
   }
 
   .work.section,
@@ -1973,14 +2267,20 @@ body:not(.dark-theme) .footer::before {
   }
   .home__container {
     position: relative;
-    grid-template-columns: 390px 520px;
+    grid-template-columns: 390px 540px;
     align-items: center;
-    column-gap: 4rem;
+    column-gap: 3rem;
     padding-block: 2.5rem 3.75rem;
   }
   .home__content {
     row-gap: 2rem;
-    padding: 1.45rem 1.7rem;
+    padding: 1.85rem 2rem;
+    transform: translateY(.85rem);
+    z-index: 1;
+  }
+  .home__perfil {
+    position: relative;
+    z-index: 2;
   }
   .home__data {
     row-gap: 1rem;
@@ -1999,13 +2299,13 @@ body:not(.dark-theme) .footer::before {
     font-size: 1.05rem;
   }
   .home__social {
-    flex-direction: column;
-    row-gap: 1.5rem;
+    flex-direction: row;
+    column-gap: .8rem;
     position: absolute;
-    top: 50%;
-    bottom: auto;
-    right: 0;
-    transform: translateY(-50%);
+    top: auto;
+    bottom: 1.75rem;
+    right: 1.9rem;
+    transform: none;
   }
   .home__social-link {
     color: var(--first-color);
@@ -2077,23 +2377,23 @@ body:not(.dark-theme) .footer::before {
   }
 
   .about__container {
-    grid-template-columns: 380px 720px;
+    grid-template-columns: 350px minmax(0, 720px);
     align-items: start;
-    column-gap: 2.5rem;
+    column-gap: 2rem;
     padding-top: 0;
   }
   .about .about__heading {
-    margin-bottom: 2rem;
+    margin-bottom: 1.35rem;
   }
   .about__data {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 1.5rem;
-    column-gap: 1.5rem;
+    row-gap: 1rem;
+    column-gap: 1.25rem;
   }
   .about__info {
     grid-column: 1 / -1;
     text-align: initial;
-    padding: 2.35rem 2.4rem 3rem;
+    padding: 1.85rem 2.15rem 2.15rem;
   }
   .about__name {
     font-size: 2.6rem;
@@ -2102,23 +2402,23 @@ body:not(.dark-theme) .footer::before {
     font-size: 1.25rem;
   }
   .about__button {
-    justify-self: flex-start;
+    justify-self: center;
   }
   .about__perfil {
     justify-self: end;
-    margin-top: 7.25rem;
+    margin-top: 3rem;
   }
   .about__perfil.perfil {
-    width: 380px;
-    height: 380px;
+    width: 350px;
+    height: 350px;
   }
   .about__perfil .perfil__content {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
     border-width: 6px;
   }
   .about__perfil .perfil__img {
-    width: 235px;
+    width: 220px;
   }
   .about__skills-title {
     text-align: center;
@@ -2128,12 +2428,16 @@ body:not(.dark-theme) .footer::before {
     justify-content: center;
   }
   .about__skills-img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 }
 
 @media screen and (min-width: 1500px) {
+  .home__container {
+    transform: translateX(5vw);
+  }
+
   .home__rectangle {
     width: 40vw;
   }
@@ -2151,4 +2455,310 @@ body:not(.dark-theme) .footer::before {
   body {
     zoom: 3.1;
   }
+}
+
+/*=============== DARK THEME — FINAL CONTRAST PASS ===============*/
+.dark-theme {
+  --title-color: hsl(0, 0%, 98%);
+  --text-color: hsl(160, 12%, 86%);
+  --text-color-light: hsl(160, 9%, 72%);
+  --body-color: hsl(168, 18%, 11%);
+  --container-color: hsl(168, 16%, 15%);
+  --shadow-color: hsla(170, 46%, 3%, .5);
+}
+
+.dark-theme :is(.bg-header, .header-pages) {
+  background-color: hsla(168, 18%, 11%, .93);
+  border-bottom: 1px solid hsla(0, 0%, 100%, .08);
+  box-shadow: 0 12px 30px hsla(170, 46%, 3%, .28);
+  backdrop-filter: blur(16px) saturate(1.08);
+  -webkit-backdrop-filter: blur(16px) saturate(1.08);
+}
+
+.dark-theme :is(.home__continuation, .work-main, .contact.section) {
+  background-color: hsl(168, 18%, 11%);
+  background-image:
+    linear-gradient(hsla(168, 24%, 8%, .78), hsla(168, 20%, 11%, .84)),
+    url("../img/endorsements-abstract-sage-gold.png");
+  background-blend-mode: multiply, normal;
+}
+
+.dark-theme .home__continuation :is(.services, .testimonial.section) {
+  background-color: transparent;
+  background-image: none;
+}
+
+.dark-theme .contact.section::before {
+  background: linear-gradient(112deg, hsla(168, 18%, 18%, .18), hsla(42, 22%, 24%, .08));
+}
+
+.dark-theme .about.section,
+.dark-theme .page-main:not(.work-main) {
+  background-color: hsl(168, 18%, 11%);
+  background-image:
+    radial-gradient(circle at 8% 16%, hsla(168, 34%, 28%, .18), transparent 28rem),
+    radial-gradient(circle at 84% 8%, hsla(42, 28%, 36%, .08), transparent 24rem),
+    linear-gradient(145deg, hsl(168, 18%, 11%), hsl(168, 16%, 13%));
+}
+
+.dark-theme :is(.services__card, .testimonial__card, .work__card, .contact__form, .about__info, .about__skills) {
+  background-color: hsla(168, 16%, 16%, .9);
+  background-image: linear-gradient(135deg, hsla(168, 16%, 21%, .82), hsla(174, 17%, 15%, .78));
+  border-color: hsla(0, 0%, 100%, .14);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, .12),
+    inset -1px -1px 0 hsla(168, 18%, 4%, .34),
+    0 18px 42px hsla(170, 46%, 3%, .34);
+}
+
+.dark-theme :is(.services__card, .testimonial__card, .work__card):hover {
+  border-color: hsla(0, 0%, 100%, .26);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, .18),
+    0 22px 48px hsla(170, 46%, 3%, .42);
+}
+
+.dark-theme :is(.home__name, .home__profession, .section__title, .services__title, .testimonial__name, .work__title, .about__name, .about__skills-title, .contact__label) {
+  color: hsl(0, 0%, 98%);
+}
+
+.dark-theme :is(.home__social-link, .services__card:nth-child(1) .services__index, .about__skills-label) {
+  color: hsl(0, 0%, 100%);
+}
+
+.dark-theme :is(.services__intro, .services__description, .testimonial__description, .work__subtitle, .about__description, .about__profession, .contact__required, .contact__message) {
+  color: hsl(160, 12%, 86%);
+}
+
+.dark-theme .about__highlight--career {
+  color: hsl(0, 0%, 100%);
+  background: linear-gradient(180deg, transparent 80%, hsla(0, 0%, 100%, .2) 80%);
+}
+
+.dark-theme :is(.about__highlight--interest, .about__highlight--thinking, .about__highlight--connect) {
+  filter: brightness(1.14) saturate(.9);
+}
+
+.dark-theme .contact__input {
+  color: hsl(0, 0%, 96%);
+  background-color: hsla(168, 16%, 12%, .72);
+  border-color: hsla(0, 0%, 100%, .3);
+}
+
+.dark-theme .contact__input::placeholder {
+  color: hsl(160, 8%, 64%);
+}
+
+.dark-theme .contact__input:focus {
+  border-color: hsla(0, 0%, 100%, .72);
+  background-color: hsla(168, 16%, 11%, .94);
+}
+
+.dark-theme .home__social {
+  background-color: hsla(168, 16%, 15%, .78);
+  border-color: hsla(0, 0%, 100%, .14);
+}
+
+.dark-theme .perfil {
+  background-color: hsla(168, 16%, 18%, .72);
+  border-color: hsla(0, 0%, 100%, .2);
+  box-shadow:
+    inset 0 0 0 1px hsla(0, 0%, 100%, .08),
+    0 18px 54px hsla(170, 46%, 3%, .42);
+}
+
+.dark-theme .perfil__content {
+  border-color: hsla(0, 0%, 100%, .46);
+}
+
+.dark-theme .footer {
+  background-color: hsl(168, 19%, 10%);
+  background-image: linear-gradient(180deg, hsl(168, 17%, 13%), hsl(168, 20%, 9%));
+}
+
+.dark-theme :is(.footer__content a, .footer__copy, .footer__social-link) {
+  color: hsl(0, 0%, 94%);
+}
+
+/* Night mode fixes for light reflections and card readability */
+.dark-theme :is(.page-main, .about.section, .contact.section)::before,
+.dark-theme :is(.page-main, .about.section, .contact.section)::after {
+  display: none;
+}
+
+.dark-theme .home__content {
+  background: linear-gradient(135deg, hsla(168, 16%, 18%, .94), hsla(168, 15%, 14%, .9));
+  border-color: hsla(0, 0%, 100%, .16);
+  box-shadow:
+    inset 1px 1px 0 hsla(0, 0%, 100%, .12),
+    inset -1px -1px 0 hsla(168, 20%, 4%, .3),
+    0 22px 48px hsla(170, 48%, 3%, .38);
+}
+
+.dark-theme .home__content::after {
+  background: linear-gradient(116deg, transparent 16%, hsla(0, 0%, 100%, .06) 28%, transparent 40%);
+}
+
+.dark-theme .home__content :is(.home__name, .home__profession) {
+  color: hsl(0, 0%, 98%);
+}
+
+.dark-theme .home__content .home__description {
+  color: hsl(160, 12%, 84%);
+}
+
+.dark-theme :is(.about__info::before, .about__skills::before) {
+  display: none;
+}
+
+.dark-theme :is(.about__info::after, .about__skills::after) {
+  display: none;
+}
+
+.dark-theme .about__profession {
+  color: hsl(0, 0%, 94%);
+}
+
+.dark-theme .work-main {
+  background-image:
+    linear-gradient(hsla(168, 22%, 8%, .86), hsla(168, 20%, 10%, .9)),
+    url("../img/endorsements-abstract-sage-gold.png");
+  background-blend-mode: multiply, normal;
+}
+
+.dark-theme .contact.section {
+  background-image:
+    linear-gradient(hsla(168, 22%, 8%, .82), hsla(168, 20%, 10%, .88)),
+    url("../img/endorsements-abstract-sage-gold.png");
+  background-blend-mode: multiply, normal;
+}
+
+.dark-theme .contact__form {
+  background-color: hsla(168, 14%, 18%, .96);
+  border-color: hsla(0, 0%, 100%, .22);
+}
+
+.dark-theme :is(.footer__logo, .footer__link, .footer__copy) {
+  text-shadow: none;
+}
+
+.dark-theme :is(.about__info, .about__skills) {
+  backdrop-filter: blur(7px) saturate(.88);
+  -webkit-backdrop-filter: blur(7px) saturate(.88);
+  box-shadow:
+    inset 0 1px 0 hsla(0, 0%, 100%, .08),
+    0 18px 42px hsla(170, 46%, 3%, .32);
+}
+
+.dark-theme .contact__input {
+  background-color: hsl(168, 15%, 13%);
+  border-color: hsla(0, 0%, 100%, .42);
+}
+
+.dark-theme .contact__input::placeholder {
+  color: hsl(160, 10%, 82%);
+  opacity: 1;
+}
+
+.dark-theme :is(.contact__label, .contact__required, .contact__message) {
+  color: hsl(0, 0%, 98%);
+}
+
+.dark-theme .contact__label {
+  background-color: hsl(168, 15%, 13%);
+}
+
+.dark-theme .contact__input:focus {
+  border-color: hsl(0, 0%, 82%);
+  box-shadow: 0 0 0 2px hsla(0, 0%, 100%, .08);
+}
+
+.dark-theme .nav__link {
+  color: hsl(0, 0%, 94%);
+}
+
+.dark-theme .nav__link:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+.nav__link[aria-current="page"]:not(.button) {
+  position: relative;
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+.nav__link[aria-current="page"]:not(.button)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -.55rem;
+  width: 1.5rem;
+  height: 3px;
+  border-radius: 999px;
+  background-color: var(--first-color);
+  transform: translateX(-50%);
+  box-shadow: 0 2px 8px hsla(var(--hue), 42%, 48%, .22);
+}
+
+.dark-theme .nav__link[aria-current="page"]:not(.button) {
+  color: hsl(0, 0%, 100%);
+}
+
+/* Keep the About cards calm and opaque in night mode. */
+.dark-theme .about__info,
+.dark-theme .about__skills,
+.dark-theme .about__skills--data,
+.dark-theme .about__skills--visuals {
+  background-color: hsl(168, 16%, 11%);
+  background-image: none;
+  border: 1px solid hsla(160, 8%, 76%, .2);
+  box-shadow:
+    inset 0 1px 0 hsla(0, 0%, 100%, .045),
+    0 16px 36px hsla(170, 46%, 3%, .3);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.dark-theme :is(.about__info, .about__skills)::before,
+.dark-theme :is(.about__info, .about__skills)::after {
+  content: none;
+  display: none;
+}
+
+/* Work cards: neutral by day, restrained charcoal-green by night. */
+.work__card {
+  background-color: hsl(42, 28%, 98%);
+  background-image: linear-gradient(145deg, hsla(0, 0%, 100%, .94), hsla(42, 22%, 96%, .72));
+  border-color: hsla(38, 18%, 72%, .28);
+}
+
+.work__link::after,
+.work__link--logo::after,
+.work__link--blind-box::after,
+.work__link--esg::after,
+.work__link--education::after {
+  background: hsla(40, 18%, 98%, .06);
+}
+
+.dark-theme .work__card {
+  background-color: hsl(168, 10%, 12%);
+  background-image: linear-gradient(145deg, hsl(168, 10%, 14%), hsl(168, 8%, 10%));
+  border-color: hsla(155, 8%, 72%, .18);
+  box-shadow:
+    inset 0 1px 0 hsla(0, 0%, 100%, .055),
+    0 18px 38px hsla(170, 44%, 3%, .32);
+}
+
+.dark-theme .work__link {
+  background-color: hsl(168, 8%, 10%);
+  border-color: hsla(155, 8%, 72%, .18);
+}
+
+.dark-theme .work__link::after,
+.dark-theme .work__link--logo::after,
+.dark-theme .work__link--blind-box::after,
+.dark-theme .work__link--esg::after,
+.dark-theme .work__link--education::after {
+  background: hsla(168, 8%, 6%, .12);
+  opacity: 1;
 }
