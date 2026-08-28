@@ -2896,22 +2896,40 @@ body:not(.dark-theme) .footer::before {
 
 /* Preserve the original mobile hero composition and soften only its image seam. */
 @media screen and (max-width: 575px) {
+  .home {
+    background-color: hsl(40, 24%, 98%);
+    background-image:
+      radial-gradient(circle at 12% 35%, hsla(176, 44%, 74%, .2), transparent 34%),
+      radial-gradient(circle at 82% 28%, hsla(43, 78%, 78%, .2), transparent 38%),
+      linear-gradient(150deg, hsl(176, 34%, 93%), hsl(43, 46%, 97%) 48%, hsl(40, 24%, 98%) 100%);
+    background-position: center;
+  }
+
   .home__rectangle {
+    height: 17rem;
     -webkit-mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 58%,
-      hsla(0, 0%, 0%, .82) 72%,
-      hsla(0, 0%, 0%, .32) 88%,
+      #000 52%,
+      hsla(0, 0%, 0%, .82) 66%,
+      hsla(0, 0%, 0%, .34) 84%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 58%,
-      hsla(0, 0%, 0%, .82) 72%,
-      hsla(0, 0%, 0%, .32) 88%,
+      #000 52%,
+      hsla(0, 0%, 0%, .82) 66%,
+      hsla(0, 0%, 0%, .34) 84%,
       transparent 100%
     );
+  }
+
+  .dark-theme .home {
+    background-color: hsl(168, 18%, 11%);
+    background-image:
+      radial-gradient(circle at 12% 34%, hsla(168, 28%, 24%, .24), transparent 35%),
+      radial-gradient(circle at 82% 28%, hsla(42, 24%, 28%, .12), transparent 38%),
+      linear-gradient(150deg, hsl(168, 18%, 13%), hsl(168, 16%, 11%) 58%, hsl(168, 18%, 10%) 100%);
   }
 }
