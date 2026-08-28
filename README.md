@@ -2,4 +2,4 @@
 
 ## Data & Intelligence
 
-Gengmeng Ye's personal portfolio, bringing together her experience, projects, and perspective across data, finance, and AI—with new features and projects continuing to be added.
+This is my personal portfolio, where I share my experience and projects across data, finance, and AI, and I'll keep adding new work and features as I go.
