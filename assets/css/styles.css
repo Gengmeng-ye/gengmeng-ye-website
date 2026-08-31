@@ -2924,11 +2924,12 @@ body:not(.dark-theme) .footer::before {
   -webkit-backdrop-filter: none;
   backface-visibility: hidden;
   transform: translateZ(0);
+  will-change: opacity;
 }
 
 .testimonial__swiper .swiper-wrapper {
   will-change: transform;
-  transition-timing-function: cubic-bezier(.22, 1, .36, 1);
+  transition-timing-function: cubic-bezier(.25, .8, .25, 1);
 }
 
 .testimonial__card--surprise {
@@ -2994,7 +2995,7 @@ body:not(.dark-theme) .footer::before {
 }
 
 .swiper-slide-active .surprise__badge {
-  animation: surprise-pop .7s cubic-bezier(.2, .9, .25, 1.25) both;
+  animation: surprise-pop .62s .32s cubic-bezier(.2, .9, .25, 1.2) both;
 }
 
 .surprise__confetti span {
@@ -3015,7 +3016,7 @@ body:not(.dark-theme) .footer::before {
 .surprise__confetti span:nth-child(6) { --x: 178px; --y: -72px; --r: 70deg; background: hsl(318, 55%, 74%); }
 
 .swiper-slide-active .surprise__confetti span {
-  animation: surprise-confetti .9s .08s cubic-bezier(.18, .78, .28, 1) both;
+  animation: surprise-confetti .82s .42s cubic-bezier(.18, .78, .28, 1) both;
 }
 
 @keyframes surprise-pop {

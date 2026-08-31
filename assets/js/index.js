@@ -25,11 +25,14 @@ modalClose.forEach((modalClose) =>{
 const swiperTestimonial = new Swiper('.testimonial__swiper', {
    loop: false,
    rewind: true,
-   speed: 620,
-   spaceBetween: 32,
+   effect: 'fade',
+   fadeEffect: {
+     crossFade: true,
+   },
+   speed: 420,
    threshold: 4,
-   touchRatio: .92,
-   resistanceRatio: .72,
+   touchRatio: 1,
+   resistanceRatio: .8,
 
    pagination: {
      el: '.swiper-pagination',
