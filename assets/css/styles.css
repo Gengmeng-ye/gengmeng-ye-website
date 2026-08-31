@@ -2942,6 +2942,26 @@ body:not(.dark-theme) .footer::before {
   color: hsl(168, 18%, 12%);
 }
 
+.testimonial__card--surprise .testimonial__name {
+  margin-bottom: .7rem;
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  line-height: 1.15;
+}
+
+.testimonial__card--surprise .testimonial__description {
+  width: min(100%, 28rem);
+  margin-inline: auto;
+  font-size: clamp(.95rem, 2.1vw, 1.05rem);
+  line-height: 1.45;
+}
+
+.surprise__emoji {
+  display: inline-block;
+  margin-left: .08em;
+  font-size: .9em;
+  vertical-align: .04em;
+}
+
 .testimonial__card--surprise > :not(.surprise__clover) {
   position: relative;
   z-index: 1;
@@ -2981,8 +3001,8 @@ body:not(.dark-theme) .footer::before {
 
 .surprise__badge {
   align-self: center;
-  margin-bottom: 1rem;
-  padding: .42rem .8rem;
+  margin-bottom: .85rem;
+  padding: .36rem .72rem;
   color: hsl(154, 34%, 28%);
   background: linear-gradient(135deg, hsl(42, 92%, 88%), hsl(18, 90%, 86%));
   border: 1px solid hsla(18, 70%, 55%, .28);
@@ -3036,7 +3056,7 @@ body:not(.dark-theme) .footer::before {
 }
 
 .testimonial__description-line + .testimonial__description-line {
-  margin-top: .35rem;
+  margin-top: .55rem;
 }
 
 .dark-theme .testimonial__swiper {
