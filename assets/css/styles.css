@@ -3073,6 +3073,10 @@ body:not(.dark-theme) .footer::before {
   color: hsl(168, 24%, 14%);
 }
 
+.dark-theme .testimonial__card--surprise :is(.testimonial__name, .testimonial__description) {
+  color: hsl(0, 0%, 98%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .swiper-slide-active .surprise__badge,
   .swiper-slide-active .surprise__confetti span {
