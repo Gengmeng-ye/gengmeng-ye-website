@@ -1782,6 +1782,29 @@ body.dark-theme {
   font-weight: 600;
 }
 
+.contact__honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact__captcha {
+  min-height: 78px;
+  justify-self: center;
+  overflow: hidden;
+  border-radius: 4px;
+  transform-origin: center top;
+}
+
+@media screen and (max-width: 380px) {
+  .contact__captcha {
+    margin-bottom: -12px;
+    transform: scale(.84);
+  }
+}
+
 .contact__box {
   position: relative;
   width: 100%;
@@ -1848,6 +1871,11 @@ body.dark-theme {
   justify-self: center;
   margin-top: .5rem;
   font-weight: var(--font-regular);
+}
+
+.contact__send:disabled {
+  cursor: wait;
+  opacity: .62;
 }
 
 .contact__message {
