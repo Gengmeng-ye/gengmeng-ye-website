@@ -28,16 +28,6 @@ const sendEmail = (e) => {
         return
     }
 
-    const captcha = typeof grecaptcha !== 'undefined' && grecaptcha.enterprise
-      ? grecaptcha.enterprise
-      : null
-    const captchaResponse = captcha ? captcha.getResponse() : ''
-
-    if (!captchaResponse) {
-        showMessage('Please complete the human verification first.')
-        return
-    }
-
     const lastSentAt = Number(localStorage.getItem(cooldownKey) || 0),
           remainingSeconds = Math.ceil((cooldownMs - (Date.now() - lastSentAt)) / 1000)
 
@@ -54,10 +44,8 @@ const sendEmail = (e) => {
             localStorage.setItem(cooldownKey, Date.now().toString())
             showMessage("Message sent successfully ✅ Thanks for reaching out. I'll get back to you soon. :)")
             contactForm.reset()
-            captcha.reset()
         }, () => {
-            showMessage('Message not sent. Please refresh the verification and try again. ❌')
-            captcha.reset()
+            showMessage('Message not sent. Please try again in a moment. ❌')
         })
         .finally(() => {
             setSending(false)
