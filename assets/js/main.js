@@ -3,20 +3,27 @@ const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
       navClose = document.getElementById('nav-close')
 
-/*===== MENU SHOW =====*/
-/* Validate if constant exists */
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
-    })
+const setMenuOpen = (open) => {
+  navMenu.classList.toggle('show-menu', open)
+  navToggle.setAttribute('aria-expanded', String(open))
 }
 
-/*===== MENU HIDDEN =====*/
-/* Validate if constant exists */
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
-    })
+if (navMenu && navToggle && navClose) {
+  navToggle.addEventListener('click', () => setMenuOpen(true))
+  navClose.addEventListener('click', () => {
+    setMenuOpen(false)
+    navToggle.focus()
+  })
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenuOpen(false))
+  })
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navMenu.classList.contains('show-menu')) {
+      setMenuOpen(false)
+      navToggle.focus()
+    }
+  })
+  window.matchMedia('(min-width: 1150px)').addEventListener('change', () => setMenuOpen(false))
 }
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/

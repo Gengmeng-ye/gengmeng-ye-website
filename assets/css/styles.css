@@ -535,16 +535,27 @@ body.dark-theme {
 }
 
 /* Navigation for mobile devices */
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1149.98px) {
   .nav__menu {
     position: fixed;
-    top: -100%;
+    top: 0;
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
     left: 0;
     background-color: var(--body-color);
     width: 100%;
     box-shadow: 0 12px 24px var(--shadow-color);
     padding-block: 5rem 4rem;
-    transition: top .4s;
+    max-height: 100dvh;
+    overflow-y: auto;
+    transition: transform .4s, visibility .4s;
+  }
+
+  .nav__menu.show-menu {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 
@@ -818,7 +829,16 @@ body.dark-theme {
   justify-self: center;
   align-items: center;
   column-gap: .8rem;
-  padding: .48rem .7rem;
+
+}
+
+.home__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   border: 1px solid hsla(0, 0%, 100%, .92);
   border-radius: 999px;
   background-color: hsla(0, 0%, 100%, .72);
@@ -827,9 +847,6 @@ body.dark-theme {
     0 8px 20px hsla(178, 22%, 24%, .09);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-}
-
-.home__social-link {
   font-size: 1.5rem;
   color: var(--title-color);
   transition: color .4s, transform .4s;
@@ -2588,7 +2605,7 @@ body:not(.dark-theme) .footer::before {
   background-color: hsla(168, 16%, 11%, .94);
 }
 
-.dark-theme .home__social {
+.dark-theme .home__social-link {
   background-color: hsla(168, 16%, 15%, .78);
   border-color: hsla(0, 0%, 100%, .14);
 }
@@ -2867,7 +2884,7 @@ body:not(.dark-theme) .footer::before {
     grid-column: 2;
     grid-row: 2;
     justify-self: end;
-    padding: .42rem .65rem;
+    padding: 0;
     column-gap: .65rem;
   }
 
@@ -3304,4 +3321,20 @@ body:not(.dark-theme) .footer::before {
       radial-gradient(circle at 82% 28%, hsla(42, 24%, 28%, .12), transparent 38%),
       linear-gradient(150deg, hsl(168, 18%, 13%), hsl(168, 16%, 11%) 58%, hsl(168, 18%, 10%) 100%);
   }
+}
+
+/* Visible keyboard focus for the individual profile buttons. */
+.home__social-link:focus-visible {
+  outline: 2px solid var(--title-color);
+  outline-offset: 4px;
+}
+
+.nav__toggle, .nav__close {
+  border: 0;
+  background: none;
+  padding: .5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__menu { transition: none; }
 }
